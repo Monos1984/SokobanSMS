@@ -1,0 +1,139 @@
+======================
+=== Sokoban Pixner ===
+======================
+Game Jam #12 du site GameCodeur
+-------------------------------
+** Langage de programmation : C
+** Framework/SDK : DevKitSMS
+** Exportation : Master System
+** Initation : 10/01/2019
+** Web : https://itch.io/jam/gamecodeur-gamejam-12
+----------------------------------------------
+** mise à jour du fichier : 12/01/2018 : 6h50
+----------------------------------------------
+
+========================================
+== Description Obligatoire Gamecodeur ==
+========================================
+- Elève Premium de Gamecodeur  : Novembre 2016 sous le pseudo de Monos
+
+- Langage et Framework utilisé : Langage C (Donc je suis Hors concours) avec un SDK pour la Master System le DevKitSMS.
+
+- Code par ... / Graphismes par ... (peut être "téléchargés sur xxx") / Musique et sons par ...
+
+- Utilisation de librairies et codes externes : Oui pour le SDK
+
+- Temps passé : Début le 10/01/2018
+
+- Comment as-tu (ou pas) abordé la contrainte du thème : Avec un travaux préparatoire simple pour lister les "fonction et idée" avant de se lancer dans le moindre ligne de code.
+
+- Petit postmortem (avis sur le langage/framework utilisés, difficultés, succès, choix, bilan personnel rapide, etc...)
+
+
+=========================
+== Journal de création ==
+=========================
+-12/01/2018 (5h=>6h45 ): Encodage des tiles et de la palette de couleur du board.
+				   : Mise en place du fichier bat pour la compilation
+				   :Mise en place de l'affichage d'un premier niveau
+
+-11/01/2018 (6h=>7h15) : Début fichier init
+					 : Création des Asset
+					 
+-10/01/2018 (6h30 => 7h15) : Début de reflexion et de rédaction du doc
+
+========================
+== Objectif personnel ==
+========================
+- Codage propre
+- Facilité un portage donc bien organiser son code des le début
+- Tenir un journal de création
+
+===========================
+== Travaux préparatoires ==
+===========================
+
+** Asset Tiles :
+- Fond
+- Mur
+- Cible
+- Sol
+- Caisse
+- Caisse sur Cible
+- Personnage * Mode Sprites ?
+- Police d'écriture
+
+** Palette de couleur :
+-1 seul palette de couleur pour les tiles.
+-1 seul palette de couleur pour les sprites.
+
+
+** Reflexion du Game Play :
+ 
+	#Test de déplacement du joueur.
+		Si case vide => déplacement du joueur
+		Si case mur => pas de déplacement du joueur
+		Si case caisse => 
+				test de déplacement de la caise
+					si case vide, déplacement de la caisse
+					déplacement du joueur (qui prend la case de la caisse) note : Si la caisse est une caisse cible, bien penser à remettre un tiles cible !
+				Sinon pas de déplacement de la caisse et donc pas de déplacement du joueur.
+				
+	#Si la caisse est sur une cible => Modification de l'asset.
+	
+	#Si toutes les caisses sont sur la cible, victoire et passage au niveau suivant !
+	
+	#Après chaque déplacement, tester la victoire du niveau.
+		
+		a) Le nombre de caisse sur cible = au nombre de cible posé à la génération de la map !
+		
+		b) Tableau Map témoins = tableau Map Ram level
+			Ce qui veux dire créer un tableau témoin de fin ou les cases doivent être placé. Le tableau Mam Ram est l'état actuel de la map hors joueur.
+
+	#Déplacement 4 directions case par case strict : 
+		(Haut/Bas/Gauche/Droite)
+	#Bouton 1 pour redémarer le niveau actuel. (Mode suicide)
+	
+	#Intégration du nombre de coup joué (Déplacement du joueur)
+	
+
+** Réflexion sur la boucle du jeu et le découpage du programme.
+
+	# Initation de la console
+	# Ecran Titre
+	# Credit
+	
+	-- Jeux en lui même --
+	# Chargement du niveau
+	# Jeu (Mode Board)
+		*Suicide, rechargement du niveau
+		*Victoire, passage au niveau suivant et Chargement du niveau ! 
+
+===================================
+== Technique de la master system ==
+===================================
+Résolution : 256x192 px
+			16x12 tiles de 16x16 px
+			
+Compatibilité : Pal et NTSC (50 et 60 hz)
+			
+a) Zone de jeu niveau 1 : 8*9 tiles(16px)
+Bandeau en haut de 1 tile(16) pour le nombre de coup
+Centrage hauteur 1 tile en haut, 1 tile en bas du plateau du jeu. (12 tiles) 
+	
+b) Zone de 16*12px pour le jeu. Le compteur est indiqué au passage de niveau !
+
+
+d) passe en mode 8*8 pour les tiles (donc garder les tiles initiales). Bof
+
+	
+			
+
+
+
+
+
+
+
+
+
